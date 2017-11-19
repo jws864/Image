@@ -58,8 +58,22 @@ function SaveImage(){
 }
 
 function Crop(){
-    var h =document.createElement('div');
-    var Submit = document.createElement('button');
-    h.appendChild(Submit);
-    
+    var s =document.createElement('div');
+    var submitButton = document.createElement('input');
+    submitButton.setAttribute('value', 'Process');
+    submitButton.setAttribute('type', 'submit');
+    s.appendChild(submitButton);
+    var w  = document.createElement('input');
+    w.innerHTML = 'enter weight in pixels';
+    var h  = document.createElement('input');
+    h.innerHTML = 'enter height in pixels';
+    var x  = document.createElement('input');
+    x.innerHTML = 'enter x position in pixels';
+    var y  = document.createElement('input');
+    y.innerHTML = 'enter y position in pixels';
+
+    s.appendChild(w);
+    s.appendChild(h);
+    s.appendChild(x);
+    s.appendChild(y);
 }
