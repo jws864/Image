@@ -1,0 +1,24 @@
+{
+  "name": "imagepro",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jws864/Image.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/jws864/Image/issues"
+  },
+  "homepage": "https://github.com/jws864/Image#readme",
+  "dependencies": {
+    "connect": "^3.6.5",
+    "fs": "0.0.1-security",
+    "multer": "^1.3.0"
+  }
+}
