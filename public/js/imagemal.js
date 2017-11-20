@@ -1,3 +1,4 @@
+//Not nesscarry 
 document.addEventListener('DOMContentLoaded', function() {
     console.log('DOM fully loaded and parsed');
 
@@ -31,7 +32,7 @@ function getURL() {
             return json.Urldata;
         });
 }
-
+/*
 function SaveImage(){
     //this recives the url and saves it as test.png
     request({
@@ -56,7 +57,7 @@ function SaveImage(){
     
     });
 }
-
+*/
 function Crop(){
     var s =document.createElement('div');
     var submitButton = document.createElement('input');
