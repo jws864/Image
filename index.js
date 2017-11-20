@@ -3,6 +3,7 @@ const bodyParser = require('body-parser');
 const app = express();
 const multer  = require('multer');
 const upload = multer();
+var gm = require('gm');
 var fs = require('fs')
 var request = require('request');
 
@@ -20,8 +21,8 @@ app.get('/imagemal/SaveImage', (req, res) => {
 app.post('/imagemal/SaveImage', upload.array(), (req, res) => {
     if (req.body && req.body.url) {
         console.log(req.body.url)
-        request(req.body.url).pipe(fs.createWriteStream('pic.png'))
-        
+        request(req.body.url).pipe(fs.createWriteStream('orginal.png'))
+       
         return res.status(200).send();
     }
 
@@ -29,27 +30,50 @@ app.post('/imagemal/SaveImage', upload.array(), (req, res) => {
 });
 
 app.post('/imagemal/crop', upload.array(), (req, res) => {
-    var w;
-    var h;
-    var x;
-    var y;
-    gm("orginal.png").crop(w,h,x,y)
+    gm('orginal.png')
+    .size(function (err, size) {
+      if (!err)
+        console.log(size.width > size.height ? 'wider' : 'taller than you');
+        var ow=size.width;
+        var oh=size.height;
+        console.log(ow,oh)
+        var w = ow/2;
+        var h = oh/2;
+        var x=w;
+        var y=h;
+        gm("orginal.png").crop(w,h,x,y)
+        .write('crop.png', function (err) {
+            if (!err) console.log('done');
+          })
+    });
 });
 
 app.post('/imagemal/resize', upload.array(), (req, res) => {
-    var w;
-    var h;
-    var x;
-    var y;
-    gm("orginal.png").crop(w,h,x,y)
+    gm('orginal.png')
+    .size(function (err, size) {
+      if (!err)
+        console.log(size.width > size.height ? 'wider' : 'taller than you');
+        var ow=size.width;
+        var oh=size.height;
+        console.log(ow,oh)
+        var w = ow/2;
+        var h = oh/2;
+        gm("orginal.png")
+        .resizeExact(w, h)
+        .write('resize.png', function (err) {
+          if (!err) console.log('done');
+        });
+    });
+   
 });
 
 app.post('/imagemal/rotate', upload.array(), (req, res) => {
-    var w;
-    var h;
-    var x;
-    var y;
-    gm("orginal.png").crop(w,h,x,y)
+    gm("orginal.png")
+    .rotate(blue, 90)
+    .write('rotate.png', function (err) {
+        if (!err) console.log('done');
+      });
+
 });
     
     
