@@ -69,7 +69,7 @@ app.post('/imagemal/resize', upload.array(), (req, res) => {
 
 app.post('/imagemal/rotate', upload.array(), (req, res) => {
     gm("orginal.png")
-    .rotate(blue, 90)
+    .rotate("blue", 90)
     .write('rotate.png', function (err) {
         if (!err) console.log('done');
       });
