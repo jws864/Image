@@ -42,7 +42,7 @@ app.post('/imagemal/crop', upload.array(), (req, res) => {
         var x=w;
         var y=h;
         gm("./public/pics/orginal.png").crop(w,h,x,y)
-        .write('./public/pics/crop.png', function (err) {
+        .write('./public/pics/orginal.png', function (err) {
             if (!err) console.log('done');
           })
     });
@@ -60,7 +60,7 @@ app.post('/imagemal/resize', upload.array(), (req, res) => {
         var h = oh/2;
         gm("./public/pics/orginal.png")
         .resizeExact(w, h)
-        .write('./public/pics/resize.png', function (err) {
+        .write('./public/pics/orginal.png', function (err) {
           if (!err) console.log('done');
         });
     });
@@ -70,7 +70,7 @@ app.post('/imagemal/resize', upload.array(), (req, res) => {
 app.post('/imagemal/rotate', upload.array(), (req, res) => {
     gm("./public/pics/orginal.png")
     .rotate("blue", 90)
-    .write('./public/pics/rotate.png', function (err) {
+    .write('./public/pics/orginal.png', function (err) {
         if (!err) console.log('done');
       });
 
